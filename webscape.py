@@ -12,7 +12,7 @@ results =[]
 myresults = pd.DataFrame()
 
 i=0
-results.append('Line' + str(i))
+#results.append('Line' + str(i))
 while i<50:
 
     status_code =  requests.get('http://18.207.112.240:8000/random_company')
@@ -22,7 +22,7 @@ while i<50:
     items = b_soup.find_all('li').__str__()
     payload = re.findall(r'[\w\.-]+:\s[\w\s\,.-]+', items)
     len = int(payload.__len__())
-#    print(payload)
+   # print(payload)
 #    print(len)
     j=0
     k=0
@@ -89,6 +89,8 @@ while i<50:
 #    print('I=',i)
 
 print(results)
+#myresults = pd.DataFrame(results, columns=list('abcde'))
+#print(myresults)
 #myresults = pd.concat([Company_Name,CEO_Name,CTO_Name,Round_No,Purpose_Desc],ignore_index=True,axis=1)
 #myresults.to_csv('new.csv')
 
