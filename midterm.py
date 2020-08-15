@@ -32,10 +32,10 @@ def getsenti():
         newresult= analyzer(sentence)
         sentiment = newresult["compound"]
         print(sentiment)
-        if sentiment >=0.0:
+        if sentiment >0.25:
             return redirect(url_for("results", usr="Sounds Positive!"))
         else:
-            return redirect(url_for("results", usr="Just another day"))
+            return redirect(url_for("results", usr="Doesn't sound positive"))
         #return render_template("results.html", usr=sentence)
     else:
         return render_template("index.html")
