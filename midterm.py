@@ -59,5 +59,9 @@ def tokens():
 def spdoc(doc):
     return render_template("results.html", doc=doc)
 
+@app.route("/readme")
+def readme():
+    return render_template("readme.html")
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=8080)
