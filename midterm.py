@@ -44,7 +44,7 @@ def getsenti():
 def results(usr):
     return render_template("results.html", usr=usr)
 
-@app.route("/pos.html",methods=["POST","GET"])
+@app.route("/pos",methods=["POST","GET"])
 def tokens():
     if request.method == "POST":
         text = request.form["content"]
