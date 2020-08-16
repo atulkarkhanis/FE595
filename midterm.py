@@ -15,8 +15,7 @@ def analyzer(sentence):
 
 def exspacy(text):
     spacydoc = sp(text)
-    doc = spacydoc.ents
-    print(doc)
+    doc = list(spacydoc.noun_chunks)
     return doc
 
 app = Flask(__name__)
@@ -40,6 +39,7 @@ def getsenti():
     else:
         return render_template("index.html")
        # return render_template("index.html")
+
 @app.route("/<usr>")
 def results(usr):
     return render_template("results.html", usr=usr)
@@ -57,7 +57,12 @@ def tokens():
 
 @app.route("/<doc>")
 def spdoc(doc):
-    return render_template("results.html", doc=doc)
+    label = []
+    text = []
+    for entity in doc:
+        label[entity] = entity.label_
+
+    return render_template("results.html", label=label)
 
 @app.route("/readme")
 def readme():

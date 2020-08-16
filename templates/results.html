@@ -8,8 +8,15 @@
 <h1>
 <p> {{usr}}</p>
 
+    {% if label: %}
+        {% for i in label:%}
+            <ol>{{label[i]}}</ol>
 
-<p>{{doc}}</p>
+        {% endfor %}
+    {% endif %}
+
+
+
 </h1>
 
 </body>
